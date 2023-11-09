@@ -26,9 +26,17 @@ func updateVelocity():
 	
 func updateAnimation():
 	var animationString = "walkUp"
-	if velocity.y > 0:
-		animationString = "walkDown"
-		
+	var x = abs(endPosition.x - startPosition.x)
+	var y = abs(endPosition.y - startPosition.y)
+	if y > x:
+		animationString = "walkUp"
+		if velocity.y > 0:
+			animationString = "walkDown"
+	else:
+		animationString = "walkLeft"
+		if velocity.x > 0:
+			animationString = "walkRight"
+	
 	animation.play((animationString))
 	
 func _physics_process(delta):
