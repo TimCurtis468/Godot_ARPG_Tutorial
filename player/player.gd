@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+signal healthChanged
+
 @export var speed: int = 35
 @onready var animations = $AnimationPlayer
-@onready var hurtColor = $Sprite2D/ColorRect
 
 @export var maxHealth = 3
 @onready var currentHealth: int = maxHealth
@@ -29,7 +30,7 @@ func UpdateAnimation():
 func handleCollision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
+		var _collider = collision.get_collider()
 		
 	
 func _physics_process(delta):
@@ -44,4 +45,4 @@ func _on_hurt_box_area_entered(area):
 		currentHealth -= 1
 		if currentHealth < 0:
 			currentHealth = maxHealth
-		print_debug(currentHealth)
+		healthChanged.emit(currentHealth)
