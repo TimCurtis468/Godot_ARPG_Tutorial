@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbboie3viaban"]
+[gd_scene load_steps=16 format=3 uid="uid://cbboie3viaban"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_alhdx"]
 [ext_resource type="PackedScene" uid="uid://bwujjdvshxby3" path="res://player/player.tscn" id="1_syusq"]
 [ext_resource type="Texture2D" uid="uid://dahof1dqlbwrh" path="res://art/TilesetFloor.png" id="2_sjars"]
 [ext_resource type="Texture2D" uid="uid://lvxh3481r64p" path="res://art/TilesetNature.png" id="3_y3v24"]
 [ext_resource type="Texture2D" uid="uid://b7glq4qyxp44d" path="res://art/AnimatedFlower.png" id="4_qua3a"]
+[ext_resource type="PackedScene" uid="uid://dcmvcc23ddya6" path="res://collectables/lifepot.tscn" id="5_015o8"]
 [ext_resource type="Script" path="res://Camera/Follow Cam.gd" id="5_qs8s0"]
 [ext_resource type="PackedScene" uid="uid://bo75sqtj1afy1" path="res://enemies/slime.tscn" id="6_ldxc3"]
+[ext_resource type="PackedScene" uid="uid://c62epyr3lywy8" path="res://collectables/sword.tscn" id="6_m560s"]
 [ext_resource type="PackedScene" uid="uid://bifgssplb5j3w" path="res://scenes/heartsContainer.tscn" id="7_rd7ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j42p7"]
@@ -2824,6 +2826,11 @@ texture = ExtResource("4_qua3a")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.625, 8, -2.5, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_h40qt"]
+resource_name = "Collectables"
+scenes/1/scene = ExtResource("5_015o8")
+scenes/2/scene = ExtResource("6_m560s")
+
 [sub_resource type="TileSet" id="TileSet_pt8yy"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
@@ -2833,6 +2840,7 @@ terrain_set_0/terrain_0/color = Color(0.537255, 0.392157, 0.733333, 1)
 sources/0 = SubResource("TileSetAtlasSource_j42p7")
 sources/1 = SubResource("TileSetAtlasSource_gbht8")
 sources/2 = SubResource("TileSetAtlasSource_grw3l")
+sources/3 = SubResource("TileSetScenesCollectionSource_h40qt")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_alhdx")
@@ -2858,6 +2866,13 @@ layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(131076, 1, 0, 524297, 1, 0, 262158, 1, 0, 131082, 1, 0, 458754, 1, 0, 131073, 2, 0, 327683, 2, 0, 524295, 2, 0, 458766, 2, 0, 65550, 2, 0, 262153, 2, 0, 983040, 524289, 12, 983041, 524289, 12, 983042, 524289, 12, 983043, 524289, 12, 983044, 524289, 12, 983045, 524289, 12, 983046, 524289, 12, 983047, 524289, 12, 983048, 524289, 12, 983049, 524289, 12, 983050, 524289, 12, 983051, 524289, 12, 983052, 524289, 12, 983053, 524289, 12, 983054, 524289, 12, 983055, 524289, 12, 983056, 524289, 12, 983057, 524289, 12, 983058, 524289, 12, 983059, 524289, 12, 983060, 524289, 12, 983061, 524289, 12, 983062, 524289, 12, 983063, 524289, 12, 983064, 524289, 12, 983065, 524289, 12, 983066, 524289, 12, 983067, 524289, 12, 983068, 524289, 12, 983069, 524289, 12, 983070, 524289, 12, 983071, 524289, 12, 983072, 524289, 12, 983073, 524289, 12, 983074, 524289, 12, 983075, 524289, 12, 786467, 524289, 12, 720931, 524289, 12, 655395, 524289, 12, 589859, 524289, 12, 524323, 524289, 12, 458787, 524289, 12, 393251, 524289, 12, 327715, 524289, 12, 262179, 524289, 12, 196643, 524289, 12, 131107, 524289, 12, 65571, 524289, 12, 35, 524289, 12, 34, 524289, 12, 33, 524289, 12, 32, 524289, 12, 31, 524289, 12, 30, 524289, 12, 29, 524289, 12, 28, 524289, 12, 27, 524289, 12, 26, 524289, 12, 25, 524289, 12, 24, 524289, 12, 23, 524289, 12, 22, 524289, 12, 21, 524289, 12, 20, 524289, 12, 19, 524289, 12, 18, 524289, 12, 17, 524289, 12, 16, 524289, 12, 15, 524289, 12, 14, 524289, 12, 13, 524289, 12, 12, 524289, 12, 11, 524289, 12, 10, 524289, 12, 9, 524289, 12, 8, 524289, 12, 7, 524289, 12, 6, 524289, 12, 5, 524289, 12, 4, 524289, 12, 3, 524289, 12, 2, 524289, 12, 1, 524289, 12, 0, 524289, 12, 327698, 524289, 12, 393234, 524289, 12, 393233, 524289, 12, 393235, 524289, 12, 458770, 524289, 12, 720907, 524289, 12, 655371, 524289, 12, 655372, 524289, 12, 655373, 524289, 12, 720909, 524289, 12, 720908, 524289, 12, 720910, 524289, 12, 327709, 524289, 12, 393245, 524289, 12, 458776, 1, 0, 720902, 1, 0, 720896, 524289, 12, 851998, 1, 0, 786454, 1, 0, 131099, 1, 0, 393248, 1, 0, 655377, 1, 0, 196634, 1, 0, 196636, 1, 0, 262171, 1, 0, 65536, 524289, 12, 131072, 524289, 12, 196608, 524289, 12, 262144, 524289, 12, 327680, 524289, 12, 393216, 524289, 12, 458752, 524289, 12, 524288, 524289, 12, 589824, 524289, 12, 655360, 524289, 12, 786432, 524289, 12, 851968, 524289, 12, 917504, 524289, 12, 36, 524289, 12, 37, 524289, 12, 38, 524289, 12, 39, 524289, 12, 40, 524289, 12, 41, 524289, 12, 65577, 524289, 12, 131113, 524289, 12, 196649, 524289, 12, 262185, 524289, 12, 327721, 524289, 12, 393257, 524289, 12, 458793, 524289, 12, 524329, 524289, 12, 589865, 524289, 12, 655401, 524289, 12, 786473, 524289, 12, 852009, 524289, 12, 917545, 524289, 12, 983081, 524289, 12, 983080, 524289, 12, 983079, 524289, 12, 983078, 524289, 12, 983077, 524289, 12, 983076, 524289, 12)
+layer_3/name = "collectables"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array(393225, 3, 65536, 196620, 3, 65536, 131090, 3, 65536, 196630, 3, 65536, 589846, 3, 65536, 786451, 3, 65536, 851991, 3, 65536, 852002, 3, 65536, 196640, 3, 65536, 851970, 3, 65536, 131110, 3, 131072, 196617, 3, 131072)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_syusq")]
 position = Vector2(125, 72)
