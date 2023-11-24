@@ -13,6 +13,8 @@ signal healthChanged
 
 @export var knockbackPower: int = 500
 
+@export var inventory: Inventory
+
 var isHurt: bool = false
 
 func _ready():
